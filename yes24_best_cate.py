@@ -10,7 +10,7 @@ from get_book_info import gbi_yes
 
 # copy the url of specific category and paste to here
 #url = str(input('url?\n'))
-url = 'http://www.yes24.com/24/category/bestseller?CategoryNumber=001001025010003&sumgb=06&ParamSortTp=04'
+url = 'http://www.yes24.com/24/category/bestseller?CategoryNumber=001001025007002&sumgb=06'
 url += '&FetchSize=%s&GS=03' %(80) #int(input('fetchsize? 20/40/80')))  # 80개씩, 품절제외
 #p = list(range(1, int(input('which page?'))+1))
 p = [1]
@@ -19,19 +19,15 @@ fn = str(dt.today().date())
 
 starttime = time.time()
 
-idx = 1
 tmp_par = cr.makepar(url)
 url_list = []
-idx_list = []
 for page in p :
     tmpurl = url + '&PageNumber=%s' % (page)
     for i in tmp_par.find_all('td', 'goodsTxtInfo'):
-        idx_list.append(idx)
-        idx += 1
         url_list.append('http://www.yes24.com' + i.find('a', href=True)['href'])
 
 rd = gbi_yes(url_list)
-rd.to_csv('C:/Users/gilbut/Desktop/getinfo.csv', header=True, encoding='ms949')
+rd.to_csv('%s 경제상식,경제이야기 베스트셀러.csv' %(fn), header=True, encoding='ms949')
 
 print('running time ', int((time.time() - starttime) / 60), 'm', round((time.time() - starttime) % 60, 2), 's')
 
@@ -52,5 +48,3 @@ def main_sear(url) :
     tag_list = df(tag_list)
 
     return result_data, tag_list
-
-input()

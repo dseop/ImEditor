@@ -1,2 +1,2 @@
-import bestsellers_yes24 as bl
+import yes24_best_cate as bl
 import crawling as cr

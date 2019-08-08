@@ -4,8 +4,9 @@ import crawling as cr
 # 서지 정보만 빨리 뽑아내고 싶을 때, url만 입력해서 뽑아낼 때 사용!
 
 ### URL 정보 ###
-url_list ="""http://www.yes24.com/Product/Goods/9336176?Acode=101
-http://www.yes24.com/Product/Goods/61288827?Acode=101""".split('\n')
+# url_list ="""http://www.yes24.com/Product/Goods/9336176?Acode=101
+# http://www.yes24.com/Product/Goods/61288827?Acode=101""".split('\n')
+
 t_list = []
 t2_list = []
 a_list = []
@@ -18,14 +19,15 @@ page_list = []
 weight_list = []
 size_list = []
 cate_list = []
-review_list=[]
+review_list=[] #13
 
 def gbi_yes(url_list) :
     for url in url_list :
     #url = url_list[0]
-        print('present url\n%s' %url)
         tmp_par = cr.makepar(url)
-        t_list.append(tmp_par.find('h2', 'gd_name').text) # 도서명
+        title = tmp_par.find('h2', 'gd_name').text
+        t_list.append(title) # 도서명
+        print(url,'\n',title)
         if tmp_par.find('h3', 'gd_nameE') is None : # 부제
             t2_list.append('')
         else :
@@ -40,7 +42,6 @@ def gbi_yes(url_list) :
         tmp_info = " ".join(tmp_par.find('tbody','b_size').find_all('td')[1].text.split(' | '))
         a = tmp_info.replace('쪽','').replace('g','').replace('mm','').split(' ') #쪽무게판형
         page_list.append(a[0])
-        print(len(a))
         if len(a) < 3:
             weight_list.append('')
             size_list.append(a[1])
@@ -72,7 +73,7 @@ def gbi_yes(url_list) :
                    '판형': size_list,
                    '분류': cate_list,
                    '리뷰수': review_list,
-                   'URL': url_list})
+                   'URL': url_list}) #13
     return raw_data
 
 # 부제
@@ -92,6 +93,7 @@ https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=116048223&start=slayer""".spl
         p = tmp_par.find('div','Ritem').text
         print(t)
         print(t2+'\n'+a+' | '+n+' | '+p)
+    return 0
 
-rd = gbi_yes(url_list)
-rd.to_csv('getinfo.csv', header=True, index=True, encoding='ms949')
+# rd = gbi_yes(url_list)
+# rd.to_csv('getinfo.csv', header=True, index=True, encoding='ms949')

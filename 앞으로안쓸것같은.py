@@ -1,4 +1,4 @@
-import bestsellers_yes24 as bl
+import yes24_best_cate as bl
 import mkcsvfile as mkc
 from importlib import reload as re
 # 검색을 한 경우 '국내도서' 꼭 고르기
