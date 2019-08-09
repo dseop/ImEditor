@@ -1,4 +1,4 @@
-import wannatrace as wt
+from notuse import wannatrace as wt
 
 # wt.variation_check('주식시장조사용_yes.xlsx')
 wt.variation_check('세금 재테크 상식사전_tracing.xlsx')

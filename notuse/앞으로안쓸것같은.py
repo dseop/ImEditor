@@ -1,6 +1,5 @@
-import yes24_best_cate as bl
-import mkcsvfile as mkc
-from importlib import reload as re
+from notuse import yes24_best_cate as bl, mkcsvfile as mkc
+
 # 검색을 한 경우 '국내도서' 꼭 고르기
 url = 'http://www.yes24.com/SearchCorner/Search?domain=BOOK&query=%b0%a1%b0%e8%ba%ce&page_size=120&sort_gb=POPULAR&scode=009_001'
 # 전체 url을 집어넣어 줘야함

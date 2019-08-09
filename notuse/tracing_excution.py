@@ -1,5 +1,5 @@
-from wannatrace import tracing_sellingpoint
-from wannatrace import tracing_sellingpoint_col
+from notuse.wannatrace import tracing_sellingpoint
+from notuse.wannatrace import tracing_sellingpoint_col
 
 num = int(input('1 : all, 2 : 주식, : 3 : 세금, 4 : new excel, 5: 주식2, 6: 새 주소 추적\n'))
 
