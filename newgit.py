@@ -9,3 +9,6 @@ print(a+b)
 
 html = "www.yes24.co.kr"
 print(html)
+
+url = "http://www.yes24.com/24/category/bestseller?CategoryNumber=001001025&sumgb=07&PageNumber=2&FetchSize=80" 
+# ex) &year=2020&month=4&day=8 이것도 추가 가능
