@@ -6,3 +6,6 @@ a=1
 b=2
 
 print(a+b)
+
+html = "www.yes24.co.kr"
+print(html)
